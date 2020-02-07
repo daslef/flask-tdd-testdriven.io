@@ -11,8 +11,6 @@ Jinja2==2.10.3
 jsonschema==3.2.0
 MarkupSafe==1.1.1
 mccabe==0.6.1
-pkg-resources==0.0.0
-pycodestyle==2.5.0
 pyflakes==2.1.1
 pyrsistent==0.15.7
 pytz==2019.3

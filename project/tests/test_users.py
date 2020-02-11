@@ -31,3 +31,19 @@ def test_add_user_dublicate_email(test_app, test_database):
     data = json.loads(resp.data.decode())
     assert resp.status_code == 400
     assert 'Sorry. That email already exists.' in data['message']
+
+
+def test_single_user(test_app, test_database):
+    from project import db
+    from project.api.models import User
+    client = test_app.test_client()
+    resp = client.get('/users/99')
+    data = json.loads(resp.data.decode())
+    assert resp.status_code == 404
+    assert 'User 99 does not exist' in data['message']
+
+
+def test_single_user_incorrect_id(test_app, test_database):
+    from project import db
+    from project.api.models import User
+    user = User(username='dummy', email='dummy@dubby.hey')

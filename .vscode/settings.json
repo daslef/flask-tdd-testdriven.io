@@ -1,5 +1,13 @@
 {
-    "python.linting.flake8Enabled": false,
-    "python.linting.banditEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.flake8Enabled": true,
+    "python.linting.banditEnabled": false,
+    "python.linting.enabled": true,
+    "python.pythonPath": "env\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": false,
+    "python.testing.pytestArgs": [
+        "project"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
 }

@@ -47,6 +47,16 @@ class Users(Resource):
         if not user:
             api.abort(404, f"User {user_id} does not exist")
         return user, 200
+    
+    def delete(self, user_id):
+        response_object = {}
+        user = User.query.filter_by(id=user_id).first()
+        if not user:
+            api.abort(404, f'User {user_id} does not exist')
+        db.session.delete(user)
+        db.session.commit()
+        response_object["message"] = f'{user.email} was removed!'
+        return response_object, 200
 
 
 api.add_resource(UsersList, "/users")

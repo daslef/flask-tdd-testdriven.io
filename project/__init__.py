@@ -20,12 +20,6 @@ def create_app(script_info=None):
     if os.getenv("FLASK_ENV") == "development":
         admin.init_app(app)
 
-    from project.api.ping import ping_blueprint
-    from project.api.users.views import users_blueprint
-
-    app.register_blueprint(ping_blueprint)
-    app.register_blueprint(users_blueprint)
-
     from project.api import api
     api.init_app(app)
 

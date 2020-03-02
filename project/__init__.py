@@ -26,6 +26,9 @@ def create_app(script_info=None):
     app.register_blueprint(ping_blueprint)
     app.register_blueprint(users_blueprint)
 
+    from project.api import api
+    api.init_app(app)
+
     @app.shell_context_processor
     def ctx():
         return {"app": app, "db": db}

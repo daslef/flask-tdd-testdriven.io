@@ -21,7 +21,7 @@ def create_app(script_info=None):
         admin.init_app(app)
 
     from project.api.ping import ping_blueprint
-    from project.api.users import users_blueprint
+    from project.api.users.views import users_blueprint
 
     app.register_blueprint(ping_blueprint)
     app.register_blueprint(users_blueprint)

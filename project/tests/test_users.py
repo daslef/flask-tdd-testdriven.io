@@ -108,7 +108,7 @@ def test_remove_user(test_app, test_database, add_user):
     resp_two = client.delete(f"/users/{user.id}")
     data = json.loads(resp_two.data.decode())
     assert resp_two.status_code == 200
-    assert 'remove-me@testdriven.io was removed!' in data['message']
+    assert "remove-me@testdriven.io was removed!" in data["message"]
     resp_three = client.get("/users")
     data = json.loads(resp_three.data.decode())
     assert resp_three.status_code == 200

@@ -1,7 +1,6 @@
 from flask import Blueprint, request
 from flask_restplus import Api, Resource, fields
 
-from project import db
 from project.api.users.models import User
 
 from project.api.users.services import (
@@ -60,9 +59,9 @@ class Users(Resource):
         response_object = {}
         user = get_user_by_id(user_id)
         if not user:
-            api.abort(404, f'User {user_id} does not exist')
+            api.abort(404, f"User {user_id} does not exist")
         delete_user(user)
-        response_object["message"] = f'{user.email} was removed!'
+        response_object["message"] = f"{user.email} was removed!"
         return response_object, 200
 
     @api.expect(user, validate=True)

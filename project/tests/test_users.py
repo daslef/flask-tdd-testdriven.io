@@ -1,5 +1,7 @@
 import json
+
 import pytest
+
 from project.api.models import User
 
 
@@ -137,6 +139,7 @@ def test_update_user(test_app, test_database, add_user):
     assert resp_two.status_code == 200
     assert "me" in data["username"]
     assert "me@testdriven.io" in data["email"]
+
 
 @pytest.mark.parametrize("user_id, payload, status_code, message", [
     [1, {}, 400, "Input payload validation failed"],

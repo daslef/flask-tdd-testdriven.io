@@ -24,21 +24,21 @@ build:
         "."
     - docker push $IMAGE:latest
 
-test:
-  stage: test
-  image: $IMAGE:latest
-  services:
-    - postgres:latest
-  variables:
-    POSTGRES_DB: users
-    POSTGRES_USER: runner
-    POSTGRES_PASSWORD: ""
-    DATABASE_TEST_URL: postgres://runner@postgres:5432/users
-  script:
-    - pytest "project/tests" -p no:warnings
-    - flake8 project
-    - black project --check
-    - isort project/**/*.py --check-only
+# test:
+#   stage: test
+#   image: $IMAGE:latest
+#   services:
+#     - postgres:latest
+#   variables:
+#     POSTGRES_DB: users
+#     POSTGRES_USER: runner
+#     POSTGRES_PASSWORD: ""
+#     DATABASE_TEST_URL: postgres://runner@postgres:5432/users
+#   script:
+#     - pytest "project/tests" -p no:warnings
+#     - flake8 project
+#     - black project --check
+#     - isort project/**/*.py --check-only
 
 deploy:
   stage: deploy
